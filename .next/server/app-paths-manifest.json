@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/access/page": "app/access/page.js",
+  "/api/access/verify-code/route": "app/api/access/verify-code/route.js",
+  "/api/files/route": "app/api/files/route.js"
+}
