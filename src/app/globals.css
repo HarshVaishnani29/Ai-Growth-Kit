@@ -373,6 +373,65 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: translateY(40px); opacity: 0; }
 }
 
+/* Butter Smooth Levitation Floating Animations */
+@keyframes butterFloat {
+  0% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) rotate(0.4deg);
+  }
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+}
+
+@keyframes butterGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.06);
+  }
+}
+
+.butter-float {
+  animation: butterFloat 5.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.butter-glow {
+  animation: butterGlow 5.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform, opacity;
+}
+
+.float-animation {
+  animation: butterFloat 4.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Holographic Metallic Shine Sweep Animation */
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-160%) rotate(25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(260%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -397,5 +456,19 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     padding-left: 18px;
     padding-right: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-access-btn {
+    display: none !important;
+  }
+  .nav-cta-btn {
+    padding: 8px 13px !important;
+    font-size: 11px !important;
+    border-radius: 6px !important;
+  }
+  .nav-brand-subtitle {
+    display: none !important;
   }
 }

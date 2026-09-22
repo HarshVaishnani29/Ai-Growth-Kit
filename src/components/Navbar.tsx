@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Sparkles, Menu, X, ArrowRight, Bot, Flame } from 'lucide-react';
+import { Menu, X, Bot, Flame } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,10 +24,10 @@ export const Navbar: React.FC = () => {
         height: '74px'
       }}>
         {/* Brand Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', flexShrink: 0 }}>
           <div style={{
-            width: '42px',
-            height: '42px',
+            width: '40px',
+            height: '40px',
             borderRadius: '12px',
             background: 'linear-gradient(135deg, #1b2230 0%, #0d1117 100%)',
             border: '1px solid rgba(245, 158, 11, 0.4)',
@@ -35,36 +35,39 @@ export const Navbar: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'center',
             color: '#fbbf24',
-            boxShadow: '0 4px 14px rgba(245, 158, 11, 0.25)'
+            boxShadow: '0 4px 14px rgba(245, 158, 11, 0.25)',
+            flexShrink: 0
           }}>
             <Bot size={22} />
           </div>
-          <div>
+          <div style={{ flexShrink: 0 }}>
             <div style={{
               fontFamily: 'var(--font-heading)',
               fontWeight: 900,
-              fontSize: '18px',
+              fontSize: '17px',
               letterSpacing: '-0.02em',
               display: 'flex',
               alignItems: 'center',
-              gap: '5px'
+              gap: '5px',
+              whiteSpace: 'nowrap'
             }}>
-              <span>AI Growth</span>
+              <span style={{ color: '#fff' }}>AI Growth</span>
               <span style={{
                 color: '#000',
                 background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
                 padding: '2px 7px',
                 borderRadius: '5px',
-                fontSize: '12px',
+                fontSize: '11px',
                 fontWeight: 900
               }}>KIT</span>
             </div>
-            <div style={{
+            <div className="nav-brand-subtitle" style={{
               fontSize: '10px',
               color: '#94a3b8',
               letterSpacing: '0.06em',
               textTransform: 'uppercase',
-              fontWeight: 700
+              fontWeight: 700,
+              whiteSpace: 'nowrap'
             }}>
               AI + Instagram Marketing System
             </div>
@@ -75,25 +78,26 @@ export const Navbar: React.FC = () => {
         <nav style={{
           display: 'none',
           alignItems: 'center',
-          gap: '26px',
+          gap: '24px',
           fontSize: '14px',
           fontWeight: 700,
           color: '#cbd5e1'
         }} className="desktop-nav">
-          <a href="#curriculum" style={{ transition: 'color 0.2s' }}>What You Get</a>
-          <a href="#preview" style={{ transition: 'color 0.2s' }}>Live Prompts</a>
-          <a href="#bonuses" style={{ transition: 'color 0.2s' }}>4 Bonuses</a>
-          <a href="#reviews" style={{ transition: 'color 0.2s' }}>Reviews</a>
-          <a href="#pricing" style={{ transition: 'color 0.2s' }}>Pricing (₹499)</a>
-          <a href="#faq" style={{ transition: 'color 0.2s' }}>FAQ</a>
+          <a href="#curriculum" style={{ transition: 'color 0.2s', whiteSpace: 'nowrap' }}>What You Get</a>
+          <a href="#preview" style={{ transition: 'color 0.2s', whiteSpace: 'nowrap' }}>Live Prompts</a>
+          <a href="#bonuses" style={{ transition: 'color 0.2s', whiteSpace: 'nowrap' }}>4 Bonuses</a>
+          <a href="#reviews" style={{ transition: 'color 0.2s', whiteSpace: 'nowrap' }}>Reviews</a>
+          <a href="#pricing" style={{ transition: 'color 0.2s', whiteSpace: 'nowrap' }}>Pricing (₹499)</a>
+          <a href="#faq" style={{ transition: 'color 0.2s', whiteSpace: 'nowrap' }}>FAQ</a>
         </nav>
 
         {/* Right CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           <Link
             href="/access"
+            className="nav-access-btn"
             style={{
-              display: 'inline-flex',
+              display: 'none',
               alignItems: 'center',
               gap: '6px',
               fontSize: '12px',
@@ -103,7 +107,8 @@ export const Navbar: React.FC = () => {
               borderRadius: '8px',
               border: '1px solid rgba(245, 158, 11, 0.35)',
               background: 'rgba(245, 158, 11, 0.08)',
-              transition: 'all 0.2s'
+              transition: 'all 0.2s',
+              whiteSpace: 'nowrap'
             }}
           >
             <span>Access Vault</span>
@@ -120,7 +125,8 @@ export const Navbar: React.FC = () => {
               borderRadius: '8px',
               border: '1px solid rgba(255, 255, 255, 0.12)',
               transition: 'all 0.2s',
-              background: 'rgba(255, 255, 255, 0.03)'
+              background: 'rgba(255, 255, 255, 0.03)',
+              whiteSpace: 'nowrap'
             }}
             className="desktop-sample-btn"
           >
@@ -129,18 +135,20 @@ export const Navbar: React.FC = () => {
 
           <Link
             href="/checkout?plan=starter"
+            className="nav-cta-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '6px',
               background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
               color: '#000',
               fontWeight: 800,
               fontSize: '13px',
-              padding: '11px 22px',
+              padding: '10px 18px',
               borderRadius: '8px',
               boxShadow: '0 4px 20px rgba(245, 158, 11, 0.35)',
-              transition: 'transform 0.2s'
+              transition: 'transform 0.2s',
+              whiteSpace: 'nowrap'
             }}
           >
             <Flame size={14} fill="#000" />
@@ -218,7 +226,24 @@ export const Navbar: React.FC = () => {
           </a>
           <div style={{ display: 'flex', gap: '10px', paddingTop: '10px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
             <Link
+              href="/access"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                flex: 1,
+                textAlign: 'center',
+                padding: '12px',
+                borderRadius: '8px',
+                border: '1px solid rgba(245, 158, 11, 0.35)',
+                color: '#fbbf24',
+                fontSize: '13px',
+                fontWeight: 700
+              }}
+            >
+              Access Vault
+            </Link>
+            <Link
               href="/sample"
+              onClick={() => setMobileMenuOpen(false)}
               style={{
                 flex: 1,
                 textAlign: 'center',
@@ -234,6 +259,7 @@ export const Navbar: React.FC = () => {
             </Link>
             <Link
               href="/checkout?plan=starter"
+              onClick={() => setMobileMenuOpen(false)}
               style={{
                 flex: 1,
                 textAlign: 'center',
@@ -245,7 +271,7 @@ export const Navbar: React.FC = () => {
                 fontWeight: 800
               }}
             >
-              BUY NOW — ₹499
+              BUY NOW
             </Link>
           </div>
         </div>
@@ -261,6 +287,11 @@ export const Navbar: React.FC = () => {
           }
           .mobile-toggle {
             display: none !important;
+          }
+        }
+        @media (min-width: 768px) {
+          .nav-access-btn {
+            display: inline-flex !important;
           }
         }
       `}</style>

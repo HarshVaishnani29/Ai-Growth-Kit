@@ -1,6 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ArrowLeft, Shield } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Learn how BusinessDataHub collects, protects, and manages customer information with 256-bit SSL encryption.',
+  alternates: {
+    canonical: '/legal/privacy',
+  },
+};
 
 export default function PrivacyPage() {
   return (

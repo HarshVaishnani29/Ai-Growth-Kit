@@ -1,6 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ArrowLeft, Shield } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions',
+  description: 'Terms of service, license agreement, and usage terms for the AI Business Growth Kit.',
+  alternates: {
+    canonical: '/legal/terms',
+  },
+};
 
 export default function TermsPage() {
   return (

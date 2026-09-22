@@ -1,6 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ArrowLeft, ShieldAlert } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Responsible Data Use Notice',
+  description: 'Guidelines and legal compliance expectations for ethical outreach and B2B communication in India.',
+  alternates: {
+    canonical: '/legal/data-use',
+  },
+};
 
 export default function DataUsePage() {
   return (

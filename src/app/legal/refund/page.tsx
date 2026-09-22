@@ -1,6 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ArrowLeft, Shield } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Refund & Cancellation Policy',
+  description: 'Review our digital product refund policy, file integrity guarantee, and customer support procedure.',
+  alternates: {
+    canonical: '/legal/refund',
+  },
+};
 
 export default function RefundPage() {
   return (

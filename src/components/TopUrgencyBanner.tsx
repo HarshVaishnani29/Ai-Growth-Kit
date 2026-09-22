@@ -20,7 +20,7 @@ export const TopUrgencyBanner: React.FC = () => {
         } else if (prev.hours > 0) {
           return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
         }
-        return { hours: 2, minutes: 59, seconds: 59 }; // loop reset
+        return { hours: 2, minutes: 59, seconds: 59 };
       });
     }, 1000);
 
@@ -33,7 +33,7 @@ export const TopUrgencyBanner: React.FC = () => {
     <div style={{
       background: 'linear-gradient(90deg, #111520 0%, #1a160d 35%, #2a1f0a 50%, #1a160d 65%, #111520 100%)',
       borderBottom: '1px solid rgba(245, 158, 11, 0.25)',
-      padding: '8px 16px',
+      padding: '7px 12px',
       fontSize: '12px',
       color: '#e2e8f0',
       position: 'relative',
@@ -44,10 +44,10 @@ export const TopUrgencyBanner: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        gap: '12px',
+        gap: '8px 14px',
         textAlign: 'center'
       }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span style={{
             background: 'linear-gradient(135deg, #ef4444, #f59e0b)',
             borderRadius: '4px',
@@ -59,11 +59,12 @@ export const TopUrgencyBanner: React.FC = () => {
             alignItems: 'center',
             gap: '3px',
             textTransform: 'uppercase',
-            letterSpacing: '0.06em'
+            letterSpacing: '0.06em',
+            whiteSpace: 'nowrap'
           }}>
             <Flame size={12} fill="#fff" /> SPECIAL LAUNCH
           </span>
-          <span style={{ fontWeight: 600, color: '#f8fafc' }}>
+          <span style={{ fontWeight: 600, color: '#f8fafc', fontSize: '12px' }}>
             AI + Instagram Marketing System: <b style={{ color: '#fbbf24' }}>90% OFF Today</b>
           </span>
         </div>
@@ -71,21 +72,22 @@ export const TopUrgencyBanner: React.FC = () => {
         <div style={{
           display: 'inline-flex',
           alignItems: 'center',
-          gap: '8px',
+          gap: '6px',
           background: 'rgba(0, 0, 0, 0.4)',
           border: '1px solid rgba(245, 158, 11, 0.3)',
-          padding: '3px 10px',
-          borderRadius: '999px'
+          padding: '2px 9px',
+          borderRadius: '999px',
+          whiteSpace: 'nowrap'
         }}>
-          <Clock size={13} color="#fbbf24" />
+          <Clock size={12} color="#fbbf24" />
           <span style={{ fontSize: '11px', color: '#94a3b8' }}>Ending In:</span>
           <div style={{
             display: 'inline-flex',
-            gap: '3px',
+            gap: '2px',
             fontFamily: 'monospace',
             fontWeight: 800,
             color: '#fbbf24',
-            fontSize: '12px'
+            fontSize: '11px'
           }}>
             <span>{formatDigit(timeLeft.hours)}h</span>
             <span>:</span>
@@ -105,10 +107,11 @@ export const TopUrgencyBanner: React.FC = () => {
             gap: '4px',
             fontSize: '11px',
             textDecoration: 'underline',
-            textUnderlineOffset: '3px'
+            textUnderlineOffset: '3px',
+            whiteSpace: 'nowrap'
           }}
         >
-          Claim Complete Kit For ₹499 →
+          Claim For ₹499 →
         </a>
       </div>
     </div>

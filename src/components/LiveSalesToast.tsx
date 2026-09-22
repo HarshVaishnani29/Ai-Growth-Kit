@@ -119,13 +119,17 @@ export const LiveSalesToast: React.FC = () => {
   const current = sales[currentIndex] || DEFAULT_SALES[0];
 
   return (
-    <div style={{
-      position: 'fixed',
-      bottom: '84px',
-      left: '24px',
-      zIndex: 120,
-      pointerEvents: 'none'
-    }}>
+    <div
+      className="sales-toast-wrapper"
+      style={{
+        position: 'fixed',
+        bottom: '88px',
+        left: '24px',
+        zIndex: 120,
+        pointerEvents: 'none',
+        maxWidth: 'calc(100vw - 32px)'
+      }}
+    >
       <AnimatePresence>
         {isVisible && (
           <motion.div
@@ -139,14 +143,15 @@ export const LiveSalesToast: React.FC = () => {
               backdropFilter: 'blur(16px)',
               border: current.isLive ? '1px solid #10b981' : '1px solid rgba(245, 158, 11, 0.35)',
               borderRadius: '16px',
-              padding: '12px 18px',
+              padding: '12px 16px',
               boxShadow: current.isLive
                 ? '0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(16, 185, 129, 0.25)'
                 : '0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.15)',
               display: 'flex',
               alignItems: 'center',
               gap: '12px',
-              maxWidth: '390px'
+              maxWidth: '380px',
+              width: '100%'
             }}
           >
             {/* Avatar Circle */}
@@ -203,6 +208,15 @@ export const LiveSalesToast: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .sales-toast-wrapper {
+            left: 14px !important;
+            bottom: 78px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

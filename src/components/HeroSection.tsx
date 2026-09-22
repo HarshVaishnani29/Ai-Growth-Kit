@@ -1,17 +1,16 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, CheckCircle, Flame, Sparkles, Bot, Palette, Zap } from 'lucide-react';
-import { VideoTeaserMockup } from './VideoTeaserMockup';
+import { ArrowRight, Star, CheckCircle, Flame } from 'lucide-react';
+import { InteractivePostCard } from './InteractivePostCard';
 
 export const HeroSection: React.FC = () => {
   return (
     <section style={{
       position: 'relative',
-      paddingTop: '64px',
-      paddingBottom: '88px',
+      paddingTop: 'clamp(40px, 6vw, 68px)',
+      paddingBottom: 'clamp(48px, 7vw, 88px)',
       overflow: 'hidden'
     }}>
       {/* Background Spotlight / Aurora Beam */}
@@ -30,17 +29,17 @@ export const HeroSection: React.FC = () => {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1.1fr 0.9fr',
-          gap: '56px',
+          gridTemplateColumns: '1.15fr 0.85fr',
+          gap: 'clamp(36px, 4vw, 56px)',
           alignItems: 'center'
         }} className="hero-grid">
           {/* Left Hero Copy */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -25 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* HeroUI / Animate UI Chip Badge */}
+            {/* Chip Badge */}
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -51,7 +50,8 @@ export const HeroSection: React.FC = () => {
               border: '1px solid rgba(245, 158, 11, 0.3)',
               marginBottom: '22px',
               backdropFilter: 'blur(12px)',
-              boxShadow: '0 4px 15px rgba(245, 158, 11, 0.1)'
+              boxShadow: '0 4px 15px rgba(245, 158, 11, 0.1)',
+              flexWrap: 'wrap'
             }}>
               <span style={{
                 width: '8px',
@@ -71,7 +71,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Main Headline */}
             <h1 style={{
-              fontSize: 'clamp(36px, 4.8vw, 58px)',
+              fontSize: 'clamp(30px, 4.4vw, 56px)',
               lineHeight: 1.15,
               marginBottom: '20px',
               letterSpacing: '-0.03em'
@@ -84,7 +84,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Subheading */}
             <p style={{
-              fontSize: '18px',
+              fontSize: 'clamp(15px, 1.8vw, 18px)',
               color: '#cbd5e1',
               lineHeight: 1.7,
               marginBottom: '28px',
@@ -110,7 +110,10 @@ export const HeroSection: React.FC = () => {
                   <img
                     key={i}
                     src={src}
-                    alt="Enrolled business owner"
+                    alt={`Verified member ${i + 1} using AI Business Growth Kit`}
+                    width={32}
+                    height={32}
+                    loading="lazy"
                     style={{
                       width: '32px',
                       height: '32px',
@@ -123,7 +126,7 @@ export const HeroSection: React.FC = () => {
                 ))}
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', color: '#fbbf24' }}>
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={16} fill="#fbbf24" strokeWidth={0} />
@@ -147,7 +150,7 @@ export const HeroSection: React.FC = () => {
                 <a
                   href="#pricing"
                   className="btn-primary"
-                  style={{ fontSize: '16px', padding: '18px 40px' }}
+                  style={{ fontSize: '15px', padding: '16px 36px', whiteSpace: 'nowrap' }}
                 >
                   <Flame size={18} fill="#000" />
                   <span>GET THE KIT NOW — ₹499</span>
@@ -158,7 +161,7 @@ export const HeroSection: React.FC = () => {
               <a
                 href="#preview"
                 className="btn-secondary"
-                style={{ fontSize: '15px' }}
+                style={{ fontSize: '14px', whiteSpace: 'nowrap' }}
               >
                 <span>Live Prompts Test Drive</span>
               </a>
@@ -168,7 +171,7 @@ export const HeroSection: React.FC = () => {
             <div style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '20px',
+              gap: '16px 20px',
               flexWrap: 'wrap',
               fontSize: '12px',
               color: '#94a3b8'
@@ -188,82 +191,20 @@ export const HeroSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Hero Visual / Video Mockup */}
+          {/* Right Hero Visual - 3D Pop-up Post Creative */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            style={{ position: 'relative' }}
+            initial={{ opacity: 0, y: 25, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%'
+            }}
           >
-            <VideoTeaserMockup />
-
-            {/* Floating Metric Pill 1 */}
-            <div style={{
-              position: 'absolute',
-              top: '-18px',
-              right: '-12px',
-              background: 'rgba(15, 23, 42, 0.92)',
-              backdropFilter: 'blur(16px)',
-              border: '1px solid rgba(245, 158, 11, 0.45)',
-              borderRadius: '14px',
-              padding: '10px 16px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.6)',
-              zIndex: 10
-            }} className="float-animation">
-              <div style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '8px',
-                background: 'rgba(245, 158, 11, 0.15)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fbbf24'
-              }}>
-                <Bot size={18} />
-              </div>
-              <div>
-                <div style={{ fontSize: '13px', fontWeight: 900, color: '#fff' }}>100 Prompts + 100 Hooks</div>
-                <div style={{ fontSize: '10px', color: '#fbbf24' }}>Indian Business Ready</div>
-              </div>
-            </div>
-
-            {/* Floating Metric Pill 2 */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-20px',
-              left: '-15px',
-              background: 'rgba(15, 23, 42, 0.92)',
-              backdropFilter: 'blur(16px)',
-              border: '1px solid rgba(16, 185, 129, 0.45)',
-              borderRadius: '14px',
-              padding: '10px 16px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              boxShadow: '0 15px 35px rgba(0, 0, 0, 0.6)',
-              zIndex: 10
-            }}>
-              <div style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '8px',
-                background: 'rgba(16, 185, 129, 0.15)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#34d399'
-              }}>
-                <Palette size={18} />
-              </div>
-              <div>
-                <div style={{ fontSize: '13px', fontWeight: 900, color: '#fff' }}>Canva Editable Templates</div>
-                <div style={{ fontSize: '10px', color: '#34d399' }}>Mobile & Desktop Friendly</div>
-              </div>
-            </div>
+            <InteractivePostCard />
           </motion.div>
         </div>
 
@@ -273,21 +214,21 @@ export const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           style={{
-            marginTop: '68px',
-            padding: '24px 32px',
+            marginTop: 'clamp(44px, 6vw, 68px)',
+            padding: '22px 28px',
             background: 'rgba(14, 19, 30, 0.75)',
             backdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             borderRadius: '18px',
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '24px',
+            gap: '20px',
             textAlign: 'center'
           }}
           className="credibility-grid"
         >
           <div>
-            <div style={{ fontSize: '28px', fontWeight: 900, color: '#fbbf24', fontFamily: 'var(--font-heading)' }}>
+            <div style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 900, color: '#fbbf24', fontFamily: 'var(--font-heading)' }}>
               100 Prompts
             </div>
             <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
@@ -295,7 +236,7 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
           <div>
-            <div style={{ fontSize: '28px', fontWeight: 900, color: '#f8fafc', fontFamily: 'var(--font-heading)' }}>
+            <div style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 900, color: '#f8fafc', fontFamily: 'var(--font-heading)' }}>
               100 Hooks
             </div>
             <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
@@ -303,7 +244,7 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
           <div>
-            <div style={{ fontSize: '28px', fontWeight: 900, color: '#10b981', fontFamily: 'var(--font-heading)' }}>
+            <div style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 900, color: '#10b981', fontFamily: 'var(--font-heading)' }}>
               30 Days
             </div>
             <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
@@ -311,7 +252,7 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
           <div>
-            <div style={{ fontSize: '28px', fontWeight: 900, color: '#fbbf24', fontFamily: 'var(--font-heading)' }}>
+            <div style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 900, color: '#fbbf24', fontFamily: 'var(--font-heading)' }}>
               ₹499
             </div>
             <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
@@ -325,11 +266,17 @@ export const HeroSection: React.FC = () => {
         @media (max-width: 960px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 44px !important;
           }
           .credibility-grid {
             grid-template-columns: 1fr 1fr !important;
             gap: 20px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .credibility-grid {
+            padding: 18px 14px !important;
+            gap: 16px !important;
           }
         }
       `}</style>
