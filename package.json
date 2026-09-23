@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0",
+    "@vercel/speed-insights": "^2.0.0",
     "canvas-confetti": "^1.9.3",
     "framer-motion": "^13.3.0",
     "lucide-react": "^0.446.0",
