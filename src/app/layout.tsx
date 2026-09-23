@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { TopUrgencyBanner } from '@/components/TopUrgencyBanner';
 import { Navbar } from '@/components/Navbar';
 import { StickyBottomBar } from '@/components/StickyBottomBar';
@@ -104,6 +105,7 @@ export default function RootLayout({
         <StickyBottomBar />
         {/* <LiveSalesToast /> */}
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
